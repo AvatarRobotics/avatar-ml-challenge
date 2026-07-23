@@ -1,0 +1,62 @@
+name: Publish challenge Docker image
+
+on:
+  push:
+    branches: [main, "20*"]
+    tags: ["20*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Image tag (e.g. 20260723)"
+        required: true
+        default: "20260723"
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set image tag
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          elif [[ "${GITHUB_REF_NAME}" =~ ^20[0-9]{6}$ ]]; then
+            TAG="${GITHUB_REF_NAME}"
+          else
+            TAG="latest"
+          fi
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Using tag: ${TAG}"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/avatarrobotics/avatar-ml-challenge:${{ steps.meta.outputs.tag }}
+            ghcr.io/avatarrobotics/avatar-ml-challenge:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/AvatarRobotics/avatar-ml-challenge
+            org.opencontainers.image.description=Avatar Robotics ML Engineer code challenge environment
