@@ -16,26 +16,29 @@ Full challenge brief: [`CHALLENGE.md`](CHALLENGE.md)
 1. Install Docker: https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 2. Prefer running Docker as a non-root user: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 3. Check that Docker works: `docker run hello-world`
-4. Pull the Avatar challenge image:
+4. Install the challenge image (from the public GitHub Release):
 
 ```bash
-docker pull ghcr.io/avatarrobotics/avatar-ml-challenge:20260723
+curl -L -o avatar-ml-challenge.tar.gz \
+  https://github.com/AvatarRobotics/avatar-ml-challenge/releases/download/20260723/avatar-ml-challenge-20260723-amd64.tar.gz
+docker load -i avatar-ml-challenge.tar.gz
 ```
 
 ### macOS
 
 1. Install Docker Desktop: https://docs.docker.com/desktop/setup/install/mac-install/
 2. Check that Docker works: `docker run hello-world`
-3. Pull the Avatar challenge image:
+3. Install the challenge image:
 
 ```bash
-docker pull ghcr.io/avatarrobotics/avatar-ml-challenge:20260723
+curl -L -o avatar-ml-challenge.tar.gz \
+  https://github.com/AvatarRobotics/avatar-ml-challenge/releases/download/20260723/avatar-ml-challenge-20260723-amd64.tar.gz
+docker load -i avatar-ml-challenge.tar.gz
 ```
 
 ### Starting the container (Ubuntu and macOS)
 
-Clone this repository (or download a release zip), then start a container with
-your working copy mounted:
+Clone this repository, then start a container with your working copy mounted:
 
 ```bash
 git clone https://github.com/AvatarRobotics/avatar-ml-challenge.git
@@ -98,7 +101,7 @@ the optional training bonus.
 | `replay_dataset.py` | Optional FK skeleton + camera replay viewer |
 | `fk.py` | URDF forward kinematics used by the replay viewer |
 | `data/manifest.example.json` | Manifest schema example |
-| `Dockerfile` | Image used for `ghcr.io/avatarrobotics/avatar-ml-challenge` |
+| `Dockerfile` | Image definition (also published as a release asset) |
 
 ## Developing
 

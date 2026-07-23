@@ -26,7 +26,10 @@ git clone https://github.com/AvatarRobotics/avatar-ml-challenge.git
 cd avatar-ml-challenge
 git checkout 20260723
 
-docker pull ghcr.io/avatarrobotics/avatar-ml-challenge:20260723
+curl -L -o avatar-ml-challenge.tar.gz \
+  https://github.com/AvatarRobotics/avatar-ml-challenge/releases/download/20260723/avatar-ml-challenge-20260723-amd64.tar.gz
+docker load -i avatar-ml-challenge.tar.gz
+
 docker run --rm -it --platform linux/amd64 \
   -v "$PWD":/work -w /work \
   ghcr.io/avatarrobotics/avatar-ml-challenge:20260723 bash
