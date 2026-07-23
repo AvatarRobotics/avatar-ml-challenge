@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """URDF forward-kinematics ghost replay for a LeRobot challenge dataset.
 
-Loads observation.state for an episode, runs FK with the shipped Agibot G1 URDF,
+Loads observation.state for an episode, runs FK with the shipped robot URDF,
 and shows a 3D stick-figure skeleton next to the head-camera video. Graders use
 this as the visual "does it look right?" check (the shapes-challenge equivalent).
 

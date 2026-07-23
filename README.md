@@ -1,6 +1,6 @@
 # Machine Learning Engineer Code Challenge
 
-We have created a Docker image and starter repository for converting real Agibot G1
+We have created a Docker image and starter repository for converting real humanoid
 teleoperation recordings (MCAP) into a training-ready episodic dataset. These are
 instructions on how to install and run the environment on Ubuntu or macOS.
 
@@ -94,7 +94,7 @@ the optional training bonus.
 | `CHALLENGE.md` | The challenge brief |
 | `docs/TOPICS.md` | Message schemas + notes on era differences |
 | `samples/` | Sanitized JSON topic samples |
-| `urdf/` | Sanitized Agibot G1 URDF + meshes |
+| `urdf/` | Sanitized robot URDF + meshes |
 | `inspect_mcap.py` | Topic / rate explorer |
 | `download_data.py` | Fetch clips from URL manifest |
 | `validate_submission.py` | Optional structural dataset checks |

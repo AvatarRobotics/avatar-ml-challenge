@@ -1,7 +1,7 @@
 [project]
 name = "avatar-ml-challenge"
 version = "0.1.0"
-description = "Avatar Robotics ML Engineer code challenge — teleop MCAP to LeRobot"
+description = "Avatar Robotics ML Engineer code challenge — teleop MCAP to training dataset"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

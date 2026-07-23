@@ -3,7 +3,7 @@
 
 ## Objective
 
-Write software that takes raw Agibot G1 teleoperation recordings (MCAP) and
+Write software that takes raw humanoid teleoperation recordings (MCAP) and
 produces a training-ready episodic dataset suitable for imitation-learning /
 behavior-cloning policy training.
 
@@ -55,7 +55,7 @@ If downloads return HTTP 403, the URLs expired — ask for a refreshed zip.
   recording eras / settings (different facilities, camera topic names, and
   end-effector behavior)
 - **Topic schema docs** (`docs/TOPICS.md`) and sanitized message samples
-- **Sanitized Agibot G1 URDF + meshes** for visualization / kinematics
+- **Sanitized robot URDF + meshes** for visualization / kinematics
 - **Optional helper scripts** you may use or ignore: `inspect_mcap.py`
   (topic explorer), `validate_submission.py` (structural dataset checks),
   `replay_dataset.py` (URDF forward-kinematics viewer)
