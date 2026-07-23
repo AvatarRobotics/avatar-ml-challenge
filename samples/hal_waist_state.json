@@ -1,0 +1,42 @@
+{
+  "topic": "/hal/waist_state",
+  "message": {
+    "header": {
+      "stamp": {
+        "sec": 1774051917,
+        "nanosec": 9485645
+      },
+      "frame_id": ""
+    },
+    "motor_states": [
+      {
+        "id": 0,
+        "enable": true,
+        "position": 0.5712152937995848,
+        "velocity": 0.0,
+        "effort": -0.528,
+        "current": 0.0,
+        "voltage": 0.0,
+        "temperature": 0.0,
+        "status": 1591,
+        "err_code": 0
+      },
+      {
+        "id": 1,
+        "enable": true,
+        "position": 0.4489544677734375,
+        "velocity": 64.0,
+        "effort": 0.0,
+        "current": 64000.0,
+        "voltage": 4325.3759765625,
+        "temperature": 0.0,
+        "status": 54839,
+        "err_code": 0
+      }
+    ],
+    "name": [
+      "joint_body_pitch",
+      "joint_lift_body"
+    ]
+  }
+}

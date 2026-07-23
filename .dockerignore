@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+recordings/
+*.mcap
+*.partial
+.DS_Store
+data/manifest.json
+*.mp4
+.preds/
+_smoke_dataset/
+.git/
+uv.lock

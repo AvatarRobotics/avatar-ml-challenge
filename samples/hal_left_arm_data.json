@@ -1,0 +1,110 @@
+{
+  "topic": "/hal/left_arm_data",
+  "message": {
+    "header": {
+      "stamp": {
+        "sec": 1774051694,
+        "nanosec": 540622336
+      },
+      "frame_id": ""
+    },
+    "motor_states": [
+      {
+        "id": 0,
+        "enable": true,
+        "position": -2.287834644317627,
+        "velocity": -0.4341599941253662,
+        "effort": 0.0,
+        "current": -2547.0,
+        "voltage": 26.0,
+        "temperature": 47.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 1,
+        "enable": true,
+        "position": 0.6116923093795776,
+        "velocity": -0.11664000153541565,
+        "effort": 0.0,
+        "current": -573.0,
+        "voltage": 26.0,
+        "temperature": 47.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 2,
+        "enable": true,
+        "position": 1.8181504011154175,
+        "velocity": -0.13391999900341034,
+        "effort": 0.0,
+        "current": -3054.0,
+        "voltage": 25.0,
+        "temperature": 46.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 3,
+        "enable": true,
+        "position": -1.351205825805664,
+        "velocity": 0.019440000876784325,
+        "effort": 0.0,
+        "current": 1037.0,
+        "voltage": 26.0,
+        "temperature": 45.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 4,
+        "enable": true,
+        "position": 1.3499842882156372,
+        "velocity": -0.34776002168655396,
+        "effort": 0.0,
+        "current": -112.0,
+        "voltage": 25.0,
+        "temperature": 48.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 5,
+        "enable": true,
+        "position": 1.2155146598815918,
+        "velocity": 0.6933599710464478,
+        "effort": 0.0,
+        "current": 52.0,
+        "voltage": 25.0,
+        "temperature": 47.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "id": 6,
+        "enable": true,
+        "position": 0.4708184599876404,
+        "velocity": 0.28512001037597656,
+        "effort": 0.0,
+        "current": 492.0,
+        "voltage": 26.0,
+        "temperature": 47.0,
+        "status": 0,
+        "err_code": 0
+      }
+    ],
+    "force_data": [
+      3.947999954223633,
+      1.9010000228881836,
+      5.811999797821045,
+      -0.2980000078678131,
+      0.3659999966621399,
+      0.0020000000949949026
+    ],
+    "force_coordinate": 0,
+    "force_state": 0,
+    "arm_state": 0,
+    "system_error": 0
+  }
+}

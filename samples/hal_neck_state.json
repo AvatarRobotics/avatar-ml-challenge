@@ -1,0 +1,42 @@
+{
+  "topic": "/hal/neck_state",
+  "message": {
+    "header": {
+      "stamp": {
+        "sec": 1774051705,
+        "nanosec": 432695676
+      },
+      "frame_id": ""
+    },
+    "motor_states": [
+      {
+        "id": 0,
+        "enable": true,
+        "position": -0.005720469923909506,
+        "velocity": 0.0026391925952487525,
+        "effort": -0.006,
+        "current": 0.0,
+        "voltage": 0.0,
+        "temperature": 0.0,
+        "status": 1591,
+        "err_code": 0
+      },
+      {
+        "id": 1,
+        "enable": true,
+        "position": 0.40007869425472686,
+        "velocity": -0.0034727620022243924,
+        "effort": 0.051,
+        "current": 0.0,
+        "voltage": 0.0,
+        "temperature": 0.0,
+        "status": 1591,
+        "err_code": 0
+      }
+    ],
+    "name": [
+      "joint_head_yaw",
+      "joint_head_pitch"
+    ]
+  }
+}

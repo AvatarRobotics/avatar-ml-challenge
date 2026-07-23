@@ -1,0 +1,82 @@
+{
+  "topic": "/remote/vr_data",
+  "message": {
+    "header": {
+      "stamp": {
+        "sec": 1774051849,
+        "nanosec": 990517364
+      },
+      "frame_id": "vr_frame"
+    },
+    "status": 0,
+    "err_code": 0,
+    "vr_controller_states": [
+      {
+        "name": "left",
+        "id": 0,
+        "key_one": false,
+        "key_two": false,
+        "hand_trig": 1.0,
+        "index_trig": 0.0,
+        "axis_x": 0.0,
+        "axis_y": 0.0,
+        "axis_click": false,
+        "position": {
+          "x": 0.09265693528492594,
+          "y": 0.012408615542432283,
+          "z": 0.028576598601310964
+        },
+        "orientation": {
+          "x": -0.49541934267298027,
+          "y": 0.1865534320195545,
+          "z": -0.7582361421567155,
+          "w": 0.38057252217481524
+        }
+      },
+      {
+        "name": "right",
+        "id": 1,
+        "key_one": false,
+        "key_two": false,
+        "hand_trig": 1.0,
+        "index_trig": 0.0,
+        "axis_x": 0.0,
+        "axis_y": 0.0,
+        "axis_click": false,
+        "position": {
+          "x": -0.009624911987311151,
+          "y": 0.046714992294551914,
+          "z": 0.08623790846331407
+        },
+        "orientation": {
+          "x": -0.30224365320256025,
+          "y": 0.21136738885333173,
+          "z": -0.24936058889316948,
+          "w": 0.895428331992543
+        }
+      },
+      {
+        "name": "head",
+        "id": 2,
+        "key_one": false,
+        "key_two": false,
+        "hand_trig": 0.0,
+        "index_trig": 0.0,
+        "axis_x": 0.0,
+        "axis_y": 0.0,
+        "axis_click": false,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.5
+        },
+        "orientation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        }
+      }
+    ]
+  }
+}

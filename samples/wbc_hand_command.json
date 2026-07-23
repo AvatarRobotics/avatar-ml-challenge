@@ -1,0 +1,42 @@
+{
+  "topic": "/wbc/hand_command",
+  "message": {
+    "header": {
+      "stamp": {
+        "sec": 1774051700,
+        "nanosec": 41644662
+      },
+      "frame_id": ""
+    },
+    "name": [
+      "left_thumb_flex",
+      "left_index_flex",
+      "left_middle_flex",
+      "left_ring_flex",
+      "left_little_flex",
+      "left_thumb_rot",
+      "right_thumb_flex",
+      "right_index_flex",
+      "right_middle_flex",
+      "right_ring_flex",
+      "right_little_flex",
+      "right_thumb_rot"
+    ],
+    "position": [
+      0.12854487733746023,
+      1.9282158460601708,
+      1.9282158460601708,
+      1.9282158460601708,
+      1.9282158460601708,
+      0.6981316888888889,
+      0.6108652277777777,
+      2.967059677777778,
+      2.967059677777778,
+      2.967059677777778,
+      2.967059677777778,
+      0.6981316888888889
+    ],
+    "velocity": [],
+    "effort": []
+  }
+}

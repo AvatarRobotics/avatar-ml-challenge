@@ -1,0 +1,27 @@
+{
+  "description": "Avatar ML challenge recordings — presigned URLs (expire ~7 days)",
+  "expires_note": "If downloads return HTTP 403, request a refreshed manifest.",
+  "clips": [
+    {
+      "id": "clip_01",
+      "filename": "clip_01.mcap",
+      "era": "gamma-bot-midshift",
+      "notes": "Heavy mid-shift picking window",
+      "url": "https://EXAMPLE-EXPIRED.r2.cloudflarestorage.com/replace-me"
+    },
+    {
+      "id": "clip_02",
+      "filename": "clip_02.mcap",
+      "era": "gamma-bot-midshift",
+      "notes": "Includes idle / aborted-pick segments",
+      "url": "https://EXAMPLE-EXPIRED.r2.cloudflarestorage.com/replace-me"
+    },
+    {
+      "id": "clip_03",
+      "filename": "clip_03.mcap",
+      "era": "2026-03-27-suction",
+      "notes": "Older suction tabletop setting",
+      "url": "https://EXAMPLE-EXPIRED.r2.cloudflarestorage.com/replace-me"
+    }
+  ]
+}
