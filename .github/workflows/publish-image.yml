@@ -60,3 +60,24 @@ jobs:
           labels: |
             org.opencontainers.image.source=https://github.com/AvatarRobotics/avatar-ml-challenge
             org.opencontainers.image.description=Avatar Robotics ML Engineer code challenge environment
+
+      - name: Make package public
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Candidates must be able to pull without auth (same idea as Docker Hub SWE image).
+          for i in 1 2 3 4 5; do
+            if gh api \
+              --method PATCH \
+              -H "Accept: application/vnd.github+json" \
+              "/orgs/AvatarRobotics/packages/container/avatar-ml-challenge" \
+              -f visibility=public; then
+              echo "Package visibility set to public"
+              exit 0
+            fi
+            echo "Visibility update attempt $i failed; retrying..."
+            sleep 5
+          done
+          echo "::warning::Could not set package visibility via API. Set it manually at:"
+          echo "https://github.com/orgs/AvatarRobotics/packages/container/package/avatar-ml-challenge"
+          exit 0
