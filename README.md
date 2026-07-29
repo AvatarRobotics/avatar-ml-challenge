@@ -1,8 +1,9 @@
 # Machine Learning Engineer Code Challenge
 
-We have created a Docker image and starter repository for converting real humanoid
-teleoperation recordings (MCAP) into a training-ready episodic dataset. These are
-instructions on how to install and run the environment on Ubuntu or macOS.
+We have created a Docker image and starter repository for working with real
+humanoid teleoperation recordings (MCAP) and building a dataset for a task you
+choose and defend. These are instructions on how to install and run the
+environment on Ubuntu or macOS.
 
 Windows hosts are not officially supported; WSL2 + Docker Desktop or an Ubuntu VM
 usually works.
@@ -84,8 +85,8 @@ python inspect_mcap.py recordings/clip_01.mcap --topic /hal/arm_joint_state --li
 
 If downloads return HTTP 403, the URLs expired — ask for a refreshed zip.
 
-A laptop with ~8 GB RAM is enough for the core task. A GPU is only needed for
-the optional training bonus.
+A laptop with ~8 GB RAM is enough for the core task. A GPU is only needed if
+you pursue optional model training or evaluation.
 
 ## Repository layout
 
@@ -105,13 +106,15 @@ the optional training bonus.
 
 ## Developing
 
-Build a runnable pipeline that converts the provided MCAPs into an episodic,
-training-ready dataset, and write `DATA_REPORT.md` defending your design
-(features, rate, alignment, episode definition, messy-data handling).
+Inspect the recordings, choose a task the data supports, and build a runnable
+pipeline that produces a dataset for that task. Write `DATA_REPORT.md`
+defending your choices: the task and why; features, labels or targets (if any),
+rate, alignment, and how you segment or structure examples; and how you handled
+messy, idle, or inconsistent data.
 
-The dataset design (schema, control rate, episode boundaries, arm/camera
-choices) is **yours to make and defend**. See `CHALLENGE.md` for evaluation
-criteria and bonus tiers.
+Imitation learning is one valid direction, not a requirement. Dataset design is
+**yours to make and defend** — there is no single prescribed schema. See
+`CHALLENGE.md` for evaluation criteria and optional additions.
 
 Optional helpers (use or ignore):
 
@@ -125,9 +128,12 @@ Clips also carry `/tf` and an embedded URDF so you can open them in
 
 ## Submitting
 
-Create a public GitHub (or similar) git repository with your solution code and a
-`README.md` describing how to reproduce your dataset from the provided clips,
-plus `DATA_REPORT.md` and any bonus training / eval artifacts.
+Create a public GitHub (or similar) git repository with your solution code,
+`DATA_REPORT.md`, and a `README.md` that explains how to reproduce your dataset
+from the provided clips and how you thought about the problem, what decisions
+you made and why, and any assumptions. Include optional extras (training, eval,
+visualization, etc.) only if you built them — describe them in your README or
+`DATA_REPORT.md`.
 
 You do not need to include the MCAP files or redistributed URLs. Optionally
 include a Dockerfile; otherwise we will run your code from

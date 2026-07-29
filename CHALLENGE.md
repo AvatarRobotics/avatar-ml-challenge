@@ -1,14 +1,15 @@
 # Machine Learning Engineer Code Challenge:
-# Teleop Recording → Training-Ready Dataset
+# Teleop Recording → Dataset Design
 
 ## Objective
 
 Write software that takes raw humanoid teleoperation recordings (MCAP) and
-produces a training-ready episodic dataset for imitation-learning /
-behavior-cloning. You will work with real multi-modal data (multi-rate joints,
-H.264 video, VR / hand commands). The core of the challenge is deciding — and
-defending — what becomes observation vs action, how streams are aligned, and
-where episodes begin and end.
+turns them into a dataset for a task you choose and defend.
+
+You will work with real multi-modal robot data. The core of the challenge is
+**understanding the data and exercising judgment**: what problem is this data
+good for, what should the dataset look like for that problem, and how do you
+turn messy teleop streams into something consistent and usable.
 
 ## Setup
 
@@ -23,33 +24,34 @@ the README. If downloads return HTTP 403, ask for a refreshed zip.
 
 ## Core Requirements
 
-- Convert the provided MCAPs into an episodic dataset suitable for imitation
-  learning. [LeRobot](https://github.com/huggingface/lerobot) v3 is recommended
-  (our helpers understand it); a documented equivalent is fine.
-- You choose observations, actions, cameras, output rate, alignment, and
-  episode boundaries. **Do not assume a single grasp signal exists** — the two
-  recording eras gate picks differently; discover what the data supports and
-  justify your heuristic.
+- Inspect the recordings and decide what task they best support. That choice
+  is yours — imitation learning / behavior cloning is one option, not a
+  requirement.
+- Design and produce a dataset for that task: features, labels / targets (if
+  any), rate, alignment, and how you segment or structure examples. Document
+  alternatives you considered.
+- **Do not assume a single grasp or episode signal exists.** Topic names and
+  behavior differ across the two recording eras — discover what the data
+  supports and justify your approach.
 - Ship:
-  1. A runnable conversion pipeline
-  2. `DATA_REPORT.md` covering design (features / shapes / rate), episode
-     definition + counts, alignment tradeoffs, and how you handled messy /
-     idle data
+  1. A runnable pipeline that builds your dataset from the provided MCAPs
+  2. `DATA_REPORT.md` covering: the task you chose and why; dataset design;
+     how you handled messy / idle / inconsistent data; and enough detail that
+     we can check your outputs against your claims
 
-Topic schemas and samples live in the repo (`docs/TOPICS.md`, `samples/`).
-Optional helpers (`inspect_mcap.py`, `validate_submission.py`,
-`replay_dataset.py`) are available; use or ignore them.
+We care about **data quality, logic, and consistency between your report and
+what you produce** — more than about matching a prescribed schema. Topic
+schemas and samples live in the repo (`docs/TOPICS.md`, `samples/`). Optional
+helpers (`inspect_mcap.py`, `validate_submission.py`, `replay_dataset.py`) are
+available; use or ignore them.
 
-## Additional Features (Bonus)
+## Optional additions
 
-You may implement any of the following to demonstrate further skills:
-
-- Idle / deadspace trimming
-- Extra modalities (wrist cams, force, body joints)
-- Auto success / failure labeling (justify the heuristic)
-- One pipeline that handles both recording eras cleanly
-- Train a small policy and compare to a naive baseline on held-out data
-- Policy visualization (e.g. predicted-action overlay via `replay_dataset.py`)
+Anything beyond the core is optional. You may add extras that strengthen your
+solution (for example: cleaning heuristics, evaluation, visualization, or a
+small model trained on your dataset) — or invent your own. Explain what you
+added and why in `DATA_REPORT.md` or your README; we may award bonus credit
+for strong optional work.
 
 ## Submission
 
@@ -62,14 +64,14 @@ assumptions.
 
 We will assess submissions based on:
 
-- **Judgment:** Are dataset design, alignment, and episode decisions sound for
-  imitation learning, and well defended in `DATA_REPORT.md`?
-- **Amount achieved:** How much works end-to-end, and how many (and how
-  difficult) extras were implemented
+- **Judgment:** Did you understand the data, pick a sensible task, and design
+  a dataset that fits it — with a clear defense in `DATA_REPORT.md`?
+- **Amount achieved:** How much works end-to-end, and how far did you take
+  optional additions
 - **Code quality:** Readability, organization, clarity of logic
 
 There is no single hidden answer. Your dataset should load, be internally
-consistent, and hold up under inspection.
+consistent, and match what your report claims.
 
 You may use any references or AI tools you'd like, but we expect you to be able
 to explain your code and decisions.
