@@ -76,19 +76,30 @@ bytes) named like `avatar-ml-challenge-mcap-urls.zip`. It contains
 python download_data.py data/manifest.json --out recordings/
 ```
 
-3. Explore a recording:
+3. Inspect a recording (topics / rates):
 
 ```bash
 python inspect_mcap.py recordings/clip_01.mcap
 python inspect_mcap.py recordings/clip_01.mcap --topic /hal/arm_joint_state --limit 1
-
-# Optional: make camera topics playable in Foxglove Studio
-pip install '.[foxglove]'   # once
-python convert_mcap_foxglove.py recordings/clip_01.mcap
-# then open recordings/clip_01_foxglove.mcap in https://foxglove.dev/
 ```
 
 If downloads return HTTP 403, the URLs expired — ask for a refreshed zip.
+
+### Inspecting video in Foxglove
+
+Camera topics in the shipped MCAPs are raw H.264 (`avatar/H264Frame`). Foxglove
+Studio cannot play that encoding directly. For visual inspection — watching the
+head / wrist cameras alongside `/tf` — convert a clip first:
+
+```bash
+pip install '.[foxglove]'   # once
+python convert_mcap_foxglove.py recordings/clip_01.mcap
+```
+
+Open the output (`recordings/clip_01_foxglove.mcap`) in
+[Foxglove Studio](https://foxglove.dev/). This is only for inspection; your
+dataset pipeline can decode the original raw H.264 (e.g. with PyAV) without
+converting.
 
 A laptop with ~8 GB RAM is enough for the core task. A GPU is only needed if
 you pursue optional model training or evaluation.
@@ -102,7 +113,7 @@ you pursue optional model training or evaluation.
 | `samples/` | Sanitized JSON topic samples |
 | `urdf/` | Sanitized robot URDF + meshes |
 | `inspect_mcap.py` | Topic / rate explorer |
-| `convert_mcap_foxglove.py` | Rewrite raw H.264 topics for Foxglove Studio playback |
+| `convert_mcap_foxglove.py` | Convert raw H.264 → Foxglove video for inspection in Studio |
 | `download_data.py` | Fetch clips from URL manifest |
 | `validate_submission.py` | Optional structural dataset checks |
 | `replay_dataset.py` | Optional FK skeleton + camera replay viewer |
@@ -129,7 +140,7 @@ python validate_submission.py <dataset>
 python replay_dataset.py <dataset> --episode 0
 ```
 
-Clips carry `/tf` and an embedded URDF. Camera topics are raw H.264 (`avatar/H264Frame`); run `convert_mcap_foxglove.py` before opening in [Foxglove](https://foxglove.dev/) if you want Studio video panels.
+Clips carry `/tf` and an embedded URDF. For inspection in [Foxglove](https://foxglove.dev/), run `convert_mcap_foxglove.py` so camera topics play in Studio (see above).
 
 ## Submitting
 

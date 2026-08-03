@@ -107,10 +107,11 @@ Streams are multi-rate and may have small clock skew. Common approaches:
 
 There is no single correct method — explain yours in `DATA_REPORT.md`.
 
-## Watching video in Foxglove
+## Inspecting video in Foxglove
 
-Camera topics ship as raw Annex-B H.264 (`avatar/H264Frame`). Foxglove Studio
-does not play that encoding natively. Convert a clip first:
+For visual inspection of the recordings, convert camera topics so Foxglove
+Studio can play them. Camera topics ship as raw Annex-B H.264
+(`avatar/H264Frame`), which Studio does not play natively:
 
 ```bash
 pip install '.[foxglove]'
