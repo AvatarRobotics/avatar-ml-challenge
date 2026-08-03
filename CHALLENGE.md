@@ -41,8 +41,8 @@ the README. If downloads return HTTP 403, ask for a refreshed zip.
 
 We care about **data quality, logic, and consistency between your report and
 what you produce** — more than about matching a prescribed schema. Topic
-schemas and samples live in the repo (`docs/TOPICS.md`, `samples/`). Optional
-helpers (`inspect_mcap.py`, `validate_submission.py`, `replay_dataset.py`) are
+schemas and samples live in the repo (`docs/TOPICS.md`, `samples/`). Optional helpers (`inspect_mcap.py`, `convert_mcap_foxglove.py` for
+Foxglove inspection, `validate_submission.py`, `replay_dataset.py`) are
 available; use or ignore them.
 
 ## Optional additions
