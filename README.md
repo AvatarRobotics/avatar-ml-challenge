@@ -81,6 +81,11 @@ python download_data.py data/manifest.json --out recordings/
 ```bash
 python inspect_mcap.py recordings/clip_01.mcap
 python inspect_mcap.py recordings/clip_01.mcap --topic /hal/arm_joint_state --limit 1
+
+# Optional: make camera topics playable in Foxglove Studio
+pip install '.[foxglove]'   # once
+python convert_mcap_foxglove.py recordings/clip_01.mcap
+# then open recordings/clip_01_foxglove.mcap in https://foxglove.dev/
 ```
 
 If downloads return HTTP 403, the URLs expired — ask for a refreshed zip.
@@ -97,6 +102,7 @@ you pursue optional model training or evaluation.
 | `samples/` | Sanitized JSON topic samples |
 | `urdf/` | Sanitized robot URDF + meshes |
 | `inspect_mcap.py` | Topic / rate explorer |
+| `convert_mcap_foxglove.py` | Rewrite raw H.264 topics for Foxglove Studio playback |
 | `download_data.py` | Fetch clips from URL manifest |
 | `validate_submission.py` | Optional structural dataset checks |
 | `replay_dataset.py` | Optional FK skeleton + camera replay viewer |
@@ -123,8 +129,7 @@ python validate_submission.py <dataset>
 python replay_dataset.py <dataset> --episode 0
 ```
 
-Clips also carry `/tf` and an embedded URDF so you can open them in
-[Foxglove](https://foxglove.dev/) and watch the robot move before writing code.
+Clips carry `/tf` and an embedded URDF. Camera topics are raw H.264 (`avatar/H264Frame`); run `convert_mcap_foxglove.py` before opening in [Foxglove](https://foxglove.dev/) if you want Studio video panels.
 
 ## Submitting
 

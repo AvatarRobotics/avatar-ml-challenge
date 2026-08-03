@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /work
 
 COPY pyproject.toml README.md CHALLENGE.md LICENSE ./
-COPY inspect_mcap.py validate_submission.py replay_dataset.py download_data.py fk.py ./
+COPY inspect_mcap.py validate_submission.py replay_dataset.py download_data.py fk.py convert_mcap_foxglove.py ./
 COPY challenge_lib ./challenge_lib
 COPY docs ./docs
 COPY samples ./samples

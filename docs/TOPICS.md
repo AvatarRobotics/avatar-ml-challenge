@@ -106,3 +106,16 @@ Streams are multi-rate and may have small clock skew. Common approaches:
 - Interpolate joints only if you understand the units and wrap
 
 There is no single correct method — explain yours in `DATA_REPORT.md`.
+
+## Watching video in Foxglove
+
+Camera topics ship as raw Annex-B H.264 (`avatar/H264Frame`). Foxglove Studio
+does not play that encoding natively. Convert a clip first:
+
+```bash
+pip install '.[foxglove]'
+python convert_mcap_foxglove.py recordings/clip_01.mcap
+```
+
+Then open the `*_foxglove.mcap` output in Foxglove. For training pipelines you
+can decode the original raw H.264 with PyAV without converting.

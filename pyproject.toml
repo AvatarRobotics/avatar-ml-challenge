@@ -16,6 +16,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+foxglove = [
+  "foxglove-schemas-protobuf>=0.2.0",
+  "protobuf>=4.0",
+]
 lerobot = [
   "lerobot>=0.3.0",
 ]
