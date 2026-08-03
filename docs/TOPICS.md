@@ -72,6 +72,16 @@ Wrist cameras (bonus):
 
 Use `inspect_mcap.py` to see which topics a given clip actually contains.
 
+### Depth (when present)
+
+Depth streams are included when the recording has them. Topic names differ by era:
+
+- Newer clips: `/depth/raw_frames`
+- Older clips: `/depth/compressed_frames`
+
+Payloads are **not** JSON — treat them as opaque/binary depth frames and discover
+encoding from the messages (or ignore depth if you do not need it).
+
 ## Optional / bonus topics
 
 | Topic | Use |
@@ -80,6 +90,7 @@ Use `inspect_mcap.py` to see which topics a given clip actually contains.
 | `/hal/left_ee_data`, `/hal/right_ee_data` | End-effector / finger state |
 | `/hal/waist_state`, `/hal/neck_state` | Body 4-DoF state |
 | `/wbc/joint_position_control` | Body command |
+| `/depth/raw_frames`, `/depth/compressed_frames` | Depth (era alias; optional modality) |
 | `/tf`, `/tf_static` | Present on Foxglove-prepared clips (FK already injected) |
 
 ## One example packing (NOT a requirement)
